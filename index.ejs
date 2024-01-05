@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+
+    
+
+
+
+
+</head>
+<body>
+  
+  
+  
+  
+<h1>Chatting</h1>
+  
+<!-- <button onclick="createConnection()">Create WS Connection</button> -->
+  
+  
+<input type="text" placeholder="enter the msg" id="msg">
+<button id="sendbtn">send</button>
+
+<div class="sabsebda">
+
+<div id="messages1" class="allmasgo"></div>
+<div id="messages2" class="allmasgo"></div>
+
+</div>
+
+  
+  
+<script src="/socket.io/socket.io.js"></script>
+
+<script>
+
+const socket = io()//this line had created a socket connection
+const sendbtn = document.getElementById("sendbtn")
+const sendmsg = document.getElementById("msg")
+const allmsg1 = document.getElementById("messages1")
+
+
+
+let a = 2;
+
+socket.on("mallu" , rolla =>{
+
+
+
+const p1 = document.createElement("p")
+p1.innerText = rolla
+allmsg1.appendChild(p1)
+allmsg1.style.fontSize = "30px"
+
+
+
+
+
+
+})
+
+
+
+sendbtn.addEventListener("click" , ()=>{
+
+
+const  msg = sendmsg.value
+socket.emit("mohit" , msg) // here meaning of socket.emit is that that transfer the data to the server
+sendmsg.value = "";
+
+
+})
+
+
+
+
+
+</script>
+
+
+  
+</body>
+</html>
